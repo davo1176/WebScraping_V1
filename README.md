@@ -65,6 +65,6 @@ Income_st.rename(index={'ttm': '12/31/2022'},inplace=True) #Rename ttm in index 
 Income_st = Income_st[Income_st.columns[:-5]] # remove last 5 irrelevant columns
 
 # Dataframe to CSV
-Income_st.to_csv(r'D:\Coding\VSC\WebScraping/export_dataframe', index=False, header=True)
+Income_st.to_csv(r'D:\Coding\VSC\WebScraping/export_dataframe.csv', index=False, header=True)
 
 print(Income_st)
