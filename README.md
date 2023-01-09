@@ -23,7 +23,6 @@ url_cf = 'https://finance.yahoo.com/quote/' + index + '/cash-flow?p='+ index
 
 # Read URL
 print(url_is)
-
 #read_data = ur.urlopen(url_is).read()
 
    
@@ -31,7 +30,7 @@ req = Request(url_is, headers={'User-Agent': 'Mozilla/5.0'})
 html_is = urlopen(req)
 
 #for line in html_is:
-#    print(line)
+#print(line)
 
 soup_is = BeautifulSoup(html_is, 'lxml')
 
@@ -51,11 +50,11 @@ new_ls
 is_data = list(zip(*[iter(new_ls)]*5))
 #print(is_data)
 
-
+# Convert to Dataframe
 Income_st = pd.DataFrame(is_data[0:])
 ##print(Income_st)
 
-
+# Data Cleaning
 Income_st.columns = Income_st.iloc[0] # Name columns to first row of dataframe
 Income_st = Income_st.iloc[1:,] # start to read 1st row
 Income_st = Income_st.T # transpose dataframe
@@ -65,7 +64,7 @@ Income_st.index.name = '' # Remove the index name
 Income_st.rename(index={'ttm': '12/31/2022'},inplace=True) #Rename ttm in index columns to end of the year
 Income_st = Income_st[Income_st.columns[:-5]] # remove last 5 irrelevant columns
 
-
+# Dataframe to CSV
 Income_st.to_csv(r'D:\Coding\VSC\WebScraping/export_dataframe', index=False, header=True)
 
 print(Income_st)
