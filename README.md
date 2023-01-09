@@ -68,3 +68,7 @@ Income_st = Income_st[Income_st.columns[:-5]] # remove last 5 irrelevant columns
 Income_st.to_csv(r'D:\Coding\VSC\WebScraping/export_dataframe.csv', index=False, header=True)
 
 print(Income_st)
+
+# Issues / Things to add
+#Currently, any part of the table that can be expanded is not included, see Total Revenue, Operating Expense, ect. How can we either add those after the fact, or how to just clean it to include initially?
+#How do you make it so the name  of the csv is concatenated with the stock index?
