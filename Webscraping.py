@@ -28,14 +28,14 @@ print(url_is)
 req = Request(url_is, headers={'User-Agent': 'Mozilla/5.0'})    
 html_is = urlopen(req)
 
-#for line in html_is:
-#    print(line)
+for line in html_is:
+    print(line)
 
 soup_is = BeautifulSoup(html_is, 'lxml')
 
 # Data Manipulation
 
-ls= [] # Create empty list
+#ls= [] # Create empty list
 for l in soup_is.find_all('div'): 
   #Find all data structure that is ‘div’
   ls.append(l.string) # add each element one by one to the list
